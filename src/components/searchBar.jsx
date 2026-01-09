@@ -1,8 +1,40 @@
-const SearchBar = () => {
+import { useState } from 'react';
+
+const SearchBar = ({searchInput}) => {
+    //State parts
+    const [inputValue, setInputValue] = useState('');
+
+    //Event handlers
+    const handleInputChange = (e) => {
+        //console.log(e.target.value);
+        setInputValue(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        //console.log('Form submitted with input:', typeof inputValue);
+        searchInput(inputValue);
+    }
+
     return (
-        <section>
-            <input type="text" placeholder="Search for songs or artists" className="p-2 border border-gray-300 rounded-l-md w-64"/>
-            <button className="bg-blue-500 text-white p-2 rounded-r-md">Search</button>
+        <section className='w-full bg-fuchsia-300 flex justify-center items-center p-4'>
+            <form 
+                onSubmit={handleSubmit}
+            >
+                <input
+                    name='music-search' 
+                    type="text" 
+                    placeholder="Search for songs or artists" 
+                    className="bg-white p-2 border border-gray-300 rounded w-64"
+                    onChange={handleInputChange}
+                />               
+                <button 
+                    className="bg-blue-500 text-white p-2 rounded-r-md cursor-pointer hover:bg-blue-600"
+                    type="submit"
+                >
+                    Go!
+                </button>
+            </form>
         </section>
     )
 }

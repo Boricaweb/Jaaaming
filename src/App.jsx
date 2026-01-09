@@ -1,27 +1,43 @@
 import { useState } from 'react'
 import NavBar from './components/navbar.jsx';
 import SearchBar from './components/searchBar.jsx';
+import SearchResults from './components/searchResults.jsx';
+import HomeBody from './components/body_parts/homeBody.jsx'
 import './App.css';
 /*
 import Intro from './components/intro.jsx'
-import HomeBody from './components/home_body.jsx'
 import Footer from './components/footer.jsx'
 */
 
 
 function App() {
   //State parts
-  const [userSearch, setUserSearch] = useState(0);
-
+  const [userSearchClick, setUserSearchClick] = useState(1);
+  const [userInput, setUserInput] = useState('');
+  const [displayResults, setDisplayResults] = useState([]);
+    
   //Event handlers
-  const handleClick = () => {
-    setUserSearch(userSearch + 1)
+  const handleSearchClick = () => {
+    //console.log(`Search click state before: ${userSearchClick}`);
+    setUserSearchClick(userSearchClick * -1);
+  }
+
+  const handleUserInput = (input) => {
+    //console.log('input value from App.jsx:', input);
+    setUserInput(input);
+  }
+
+  const handleDisplayResults = (results) => {
+    console.log('Displaying results in App.jsx:', results);
+    setDisplayResults(results);
   }
 
   return (
     <>
-      <NavBar onClick={handleClick}/>
-      <SearchBar />
+      <NavBar searchClick={handleSearchClick} />
+      {userSearchClick < 0 ? <SearchBar searchInput={handleUserInput} /> : null}
+      {userInput.length > 0 ? <SearchResults apiParams={userInput} returnResults={handleDisplayResults} /> : null}
+      {displayResults.length > 0 ? <HomeBody results={displayResults} /> : null}
     </>
   )
 }
