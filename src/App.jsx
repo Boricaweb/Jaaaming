@@ -2,12 +2,11 @@ import { useState } from 'react'
 import NavBar from './components/navbar.jsx';
 import SearchBar from './components/searchBar.jsx';
 import SearchResults from './components/searchResults.jsx';
-import HomeBody from './components/body_parts/homeBody.jsx'
-import './App.css';
-/*
+import HomeBody from './components/body_parts/homeBody.jsx';
 import Intro from './components/intro.jsx'
 import Footer from './components/footer.jsx'
-*/
+import './App.css';
+
 
 function App() {
   //State parts
@@ -36,8 +35,10 @@ function App() {
     <>
       <NavBar searchClick={handleSearchClick} />
       {userSearchClick < 0 ? <SearchBar searchInput={handleUserInput} /> : null}
+      <Intro />
       {userInput.length > 0 ? <SearchResults apiParams={userInput} returnResults={handleDisplayResults} /> : null}
       {displayResults.length > 0 ? <HomeBody results={displayResults} /> : null}
+      <Footer />
     </>
   )
 }
