@@ -9,7 +9,6 @@ import Intro from './components/intro.jsx'
 import Footer from './components/footer.jsx'
 */
 
-
 function App() {
   //State parts
   const [userSearchClick, setUserSearchClick] = useState(1);
@@ -20,6 +19,7 @@ function App() {
   const handleSearchClick = () => {
     //console.log(`Search click state before: ${userSearchClick}`);
     setUserSearchClick(userSearchClick * -1);
+    setUserInput('');
   }
 
   const handleUserInput = (input) => {
@@ -27,9 +27,9 @@ function App() {
     setUserInput(input);
   }
 
-  const handleDisplayResults = (results) => {
-    console.log('Displaying results in App.jsx:', results);
-    setDisplayResults(results);
+  const handleDisplayResults = (result) => {
+    console.log('Displaying results in App.jsx:', result);
+    setDisplayResults(result);
   }
 
   return (
