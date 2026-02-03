@@ -37,7 +37,7 @@ function App() {
       {userSearchClick < 0 ? <SearchBar searchInput={handleUserInput} /> : null}
       <Intro />
       {userInput.length > 0 ? <SearchResults apiParams={userInput} returnResults={handleDisplayResults} /> : null}
-      {displayResults.length > 0 ? <HomeBody results={displayResults} /> : null}
+      <HomeBody results={displayResults} />
       <Footer />
     </>
   )

@@ -1,9 +1,9 @@
 const NavBar = ({searchClick}) => {
 
     return (
-        <nav className='w-full h-[10rem] bg-black p-4 text-white flex justify-between items-center'>
+        <nav className='w-full h-[6rem] bg-black p-4 text-white flex justify-between items-center'>
             <section className='size-[50%]'>
-                <h1>Jaaaming</h1>
+                <h1>Jaaaming Logo</h1>
             </section>
             <section className='size-[50%] flex justify-evenly items-center'>
                 <div className='size-[50%] flex justify-evenly items-center'> 

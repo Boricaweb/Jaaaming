@@ -17,7 +17,7 @@ const SearchBar = ({searchInput}) => {
     }
 
     return (
-        <section className='w-full bg-fuchsia-300 flex justify-center items-center p-4'>
+        <section className='w-full bg-fuchsia-200 flex justify-center items-center p-4 absolute top-[6rem] z-10'>
             <form 
                 onSubmit={handleSubmit}
             >
