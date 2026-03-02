@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "mocha --require jsdom-global/register --require @babel/register 'src/test/**/*.test.{ js,jsx }'"
+    "com_test": "babel-node node_modules/mocha/bin/mocha --require jsdom-global/register --require ignore-styles \"./test/App_Components.test.js\"",
+    "result_test": "mocha --require @babel/register \"./test/playlist.test.js\""
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -18,19 +19,22 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
+    "@babel/node": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
     "@babel/preset-react": "^7.28.5",
+    "@babel/register": "^7.28.6",
     "@eslint/js": "^9.39.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "chai": "^6.2.2",
+    "chai": "^4.5.0",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "ignore-styles": "^5.0.1",
     "jsdom": "^28.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^11.7.5",

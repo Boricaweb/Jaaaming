@@ -10,17 +10,26 @@ import './App.css';
 
 function App() {
   //State parts
-  const [userSearchClick, setUserSearchClick] = useState(1);
-  const [userInput, setUserInput] = useState('');
-  const [displayResults, setDisplayResults] = useState([]);
+  const [userSearchClick, setUserSearchClick] = useState(1); //Search button useState
+  const [userPlaylistClick, setUserPlaylistClick] = useState(1);//Playlist button useState
+ const [userInput, setUserInput] = useState(''); //Search bar input useState
+  const [displayResults, setDisplayResults] = useState([]); //Body section uesState
     
   //Event handlers
+  //Search button click event
   const handleSearchClick = () => {
     //console.log(`Search click state before: ${userSearchClick}`);
     setUserSearchClick(userSearchClick * -1);
     setUserInput('');
   }
 
+  //Playlist button click event
+  const handlePlaylistClick = () => {
+    setUserPlaylistClick(userPlaylistClick * -1);
+    console.log(userPlaylistClick);
+  }
+
+  //Search bar input data event
   const handleUserInput = (input) => {
     //console.log('input value from App.jsx:', input);
     setUserInput(input);
@@ -33,7 +42,7 @@ function App() {
 
   return (
     <>
-      <NavBar searchClick={handleSearchClick} />
+      <NavBar searchClick={handleSearchClick} playlistClick={handlePlaylistClick}/>
       {userSearchClick < 0 ? <SearchBar searchInput={handleUserInput} /> : null}
       <Intro />
       {userInput.length > 0 ? <SearchResults apiParams={userInput} returnResults={handleDisplayResults} /> : null}
